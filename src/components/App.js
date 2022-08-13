@@ -20,11 +20,10 @@ function App() {
 
   let eatSushi = (s) => {
     if (s.price <= wallet) {
-      setWallet(wallet - s.price)
       plateCount.current += 1
       s.eaten = true
-      setSushi([...sushi])
-
+      setWallet(wallet - s.price)
+      
     } else {
       alert("You don't have enough money!")
     }
