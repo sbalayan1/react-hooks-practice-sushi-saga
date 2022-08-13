@@ -3,13 +3,11 @@ import MoreButton from "./MoreButton";
 import Sushi from './Sushi'
 
 function SushiContainer({sushi, eatSushi}) {
-  const [index, setIndex] = useState(4)
+  const [index, setIndex] = useState(0)
 
-  let updateIndex = () => {
-    index >= sushi.length ? setIndex(4) : setIndex(index+4)
-  }
+  let updateIndex = () => setIndex((index+4) % sushi.length)
 
-  let renderSushi = sushi.slice(index-4, index).map(s => 
+  let renderSushi = sushi.slice(index, index+4).map(s => 
     <Sushi key={s.id} sushi={s} eatSushi={eatSushi}/>
   )
 
