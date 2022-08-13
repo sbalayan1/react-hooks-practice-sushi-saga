@@ -23,6 +23,7 @@ function App() {
       setWallet(wallet - s.price)
       plateCount.current += 1
       s.eaten = true
+      setSushi([...sushi])
 
     } else {
       alert("You don't have enough money!")
