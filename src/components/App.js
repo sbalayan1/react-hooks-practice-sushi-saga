@@ -17,11 +17,12 @@ function App() {
     })
   }, [])
 
-
   let eatSushi = (s) => {
     if (s.price <= wallet) {
       plateCount.current += 1
-      s.eaten = true
+      let copySushi = [...sushi]
+      copySushi[s.id-1].eaten = true
+      setSushi([...copySushi])
       setWallet(wallet - s.price)
       
     } else {
